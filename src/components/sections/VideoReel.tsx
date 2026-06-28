@@ -12,7 +12,7 @@ export default function VideoReel() {
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
 
   return (
-    <section ref={ref} className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden flex items-center justify-center">
+    <section ref={ref} className="relative min-h-[55vh] md:min-h-[65vh] overflow-hidden flex items-center justify-center">
       {/* Video background */}
       <video
         autoPlay

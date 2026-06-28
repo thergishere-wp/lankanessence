@@ -18,24 +18,26 @@ export default function HomePage() {
       <Hero />
 
       {/* Packages Section */}
-      <section className="bg-cream py-section" id="packages">
+      <section className="bg-cream pt-12 pb-10" id="packages">
         <div className="max-w-container mx-auto px-5 md:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <SectionLabel>Curated Journeys</SectionLabel>
-            <h2 className="font-display text-display-sm md:text-display-md text-forest">
+            <h2 className="font-display text-display-sm md:text-display-md text-forest mt-2">
               Sri Lanka Tour Packages
             </h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mt-5" />
+            <p className="font-body text-forest/60 text-sm mt-3 max-w-xl mx-auto">
+              Discover the soul of Sri Lanka through carefully curated journeys that blend culture, nature, adventure, and relaxation.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {PACKAGES.map((pkg) => (
               <PackageCard key={pkg.id} {...pkg} />
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-7">
             <Link
               href="/packages"
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-forest text-forest font-body text-label-caps uppercase tracking-wider hover:bg-forest hover:text-cream transition-colors duration-200 font-bold"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-forest text-forest font-body text-label-caps uppercase tracking-wider hover:bg-forest hover:text-cream transition-colors duration-200 text-xs"
             >
               View All Packages
             </Link>
@@ -43,24 +45,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <WaveDivider fromColor="#F5F0E8" toColor="#0D2818" />
       <StatsBar />
-      <WaveDivider fromColor="#0D2818" toColor="#F5F0E8" />
 
       {/* Day Excursions */}
-      <section className="bg-cream py-section">
+      <section className="bg-cream py-10">
         <div className="max-w-container mx-auto px-5 md:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-7">
             <SectionLabel>Add-On Experiences</SectionLabel>
-            <h2 className="font-display text-display-sm md:text-display-md text-forest">
-              Day Excursions
-            </h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mt-5" />
+            <h2 className="font-display text-display-sm text-forest mt-2">Day Excursions</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {DAY_EXCURSIONS.map((exc) => (
               <article key={exc.id} className="group bg-white border-l-4 border-l-gold">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
                   <Image
                     src={exc.image}
                     alt={exc.name}
@@ -68,10 +65,10 @@ export default function HomePage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <span className="font-body text-label-caps text-gold text-xs uppercase tracking-wider">{exc.duration}</span>
-                  <h3 className="font-display text-display-xs text-forest mt-2 mb-3">{exc.name}</h3>
-                  <p className="font-body text-forest/60 text-sm leading-relaxed mb-4">{exc.description}</p>
+                  <h3 className="font-display text-[20px] text-forest mt-1.5 mb-2">{exc.name}</h3>
+                  <p className="font-body text-forest/60 text-sm leading-relaxed mb-3 line-clamp-3">{exc.description}</p>
                   <Link href="/tailor-made" className="font-body text-label-caps text-forest border-b border-gold pb-0.5 uppercase tracking-wider text-xs hover:text-gold transition-colors">
                     Request This Experience
                   </Link>
@@ -87,33 +84,32 @@ export default function HomePage() {
       <VideoReel />
 
       {/* Accommodations Preview */}
-      <section className="bg-forest py-section overflow-hidden">
+      <section className="bg-cream-dark py-10 overflow-hidden">
         <div className="max-w-container mx-auto px-5 md:px-8">
-          <div className="text-center mb-14">
-            <p className="font-body text-label-caps text-gold uppercase tracking-wider mb-3">Where You&apos;ll Stay</p>
-            <h2 className="font-display text-display-sm md:text-display-md text-cream">
-              Partner Hotels
-            </h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mt-5" />
+          <div className="text-center mb-7">
+            <p className="font-body text-label-caps text-gold uppercase tracking-wider mb-2">Where You&apos;ll Stay</p>
+            <h2 className="font-display text-display-sm text-forest">Our Accommodations</h2>
           </div>
-          <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {HOTELS.map((hotel) => (
-              <article key={hotel.name} className="flex-shrink-0 w-72 group cursor-pointer">
-                <div className="relative h-48 overflow-hidden mb-4">
+              <article key={hotel.name} className="group cursor-pointer">
+                <div className="relative h-40 overflow-hidden mb-3">
                   <Image src={hotel.image} alt={hotel.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-linear-to-t from-forest-deep/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-forest-deep/50 to-transparent" />
                 </div>
-                <div className="flex items-start gap-2 mb-1">
-                  <GoldPin />
+                <div className="flex items-center gap-1 mb-1">
+                  <GoldPin className="w-3 h-3" />
                   <span className="font-body text-label-caps text-gold text-xs uppercase tracking-wider">{hotel.location}</span>
                 </div>
-                <h3 className="font-display text-display-xs text-cream mb-2">{hotel.name}</h3>
-                <p className="font-body text-cream/60 text-sm leading-relaxed">{hotel.description}</p>
+                <h3 className="font-display text-[17px] text-forest leading-tight mb-1">{hotel.name}</h3>
+                <Link href="/accommodations" className="font-body text-xs text-forest/50 hover:text-gold transition-colors uppercase tracking-wider">
+                  Read More
+                </Link>
               </article>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link href="/accommodations" className="inline-flex items-center gap-2 font-body text-label-caps text-gold border-b border-gold/50 pb-0.5 uppercase tracking-wider hover:border-gold transition-colors">
+          <div className="text-center mt-6">
+            <Link href="/accommodations" className="inline-flex items-center gap-2 font-body text-label-caps text-forest border-b border-gold/60 pb-0.5 uppercase tracking-wider text-xs hover:text-gold transition-colors">
               View All Accommodations
             </Link>
           </div>

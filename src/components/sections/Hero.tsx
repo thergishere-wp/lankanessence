@@ -28,7 +28,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section ref={heroRef} className="relative w-full h-screen min-h-[640px] flex items-center justify-center overflow-hidden">
+    <section ref={heroRef} className="relative w-full h-[88vh] min-h-[560px] flex items-center justify-center overflow-hidden">
       {/* Parallax background — real video from lankanessence.com */}
       <video
         ref={bgRef}
