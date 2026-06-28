@@ -95,15 +95,15 @@ export default function ContactPage() {
                 </a>
 
                 {/* Phone NZ */}
-                <a href={`tel:${BRAND.contact.phoneNZ.replace(/-/g, '')}`} className="flex items-start gap-4 group cursor-pointer">
+                <a href={`tel:${BRAND.contact.phoneIndia.replace(/-/g, '')}`} className="flex items-start gap-4 group cursor-pointer">
                   <div className="w-10 h-10 bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors">
                     <svg className="w-5 h-5 text-gold group-hover:text-forest transition-colors" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
                     </svg>
                   </div>
                   <div>
-                    <p className="font-body text-label-caps text-forest/50 uppercase tracking-wider text-xs mb-1">New Zealand Office</p>
-                    <p className="font-body text-forest text-sm font-medium group-hover:text-gold transition-colors">{BRAND.contact.phoneNZ}</p>
+                    <p className="font-body text-label-caps text-forest/50 uppercase tracking-wider text-xs mb-1">India Office</p>
+                    <p className="font-body text-forest text-sm font-medium group-hover:text-gold transition-colors">{BRAND.contact.phoneIndia}</p>
                   </div>
                 </a>
 

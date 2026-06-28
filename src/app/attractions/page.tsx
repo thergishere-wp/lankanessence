@@ -15,7 +15,7 @@ export default function AttractionsPage() {
       <section
         className="relative h-64 md:h-80 flex items-end pb-12"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80')`,
+          backgroundImage: `url('https://static.wixstatic.com/media/6271b2_bc3d5b19476947ad8090b1f555a1fca3~mv2.png/v1/fill/w_1600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/galle.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 30%',
         }}

@@ -49,7 +49,7 @@ export default function CulturalSpotlight() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative min-h-[400px] lg:min-h-0"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1606298855672-3efb63017be8?w=900&q=80')`,
+              backgroundImage: `url('https://static.wixstatic.com/media/6271b2_966660957d96479ba9cd1b3ddd6523cd~mv2.jpg/v1/fill/w_900,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Perehara.jpg')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

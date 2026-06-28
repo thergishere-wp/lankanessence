@@ -34,7 +34,7 @@ export default function Hero() {
         ref={bgRef}
         className="absolute inset-0 scale-110"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85')`,
+          backgroundImage: `url('https://static.wixstatic.com/media/6271b2_6277832756034311941b873be7b37f13~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/train.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

@@ -45,7 +45,7 @@ export default function OurStoryPage() {
       <section
         className="relative h-64 md:h-96 flex items-end pb-12"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80')`,
+          backgroundImage: `url('https://static.wixstatic.com/media/6271b2_391ef11e4f0f497f8d3ba6f0c9b0f454~mv2.jpg/v1/fill/w_1600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/sigiriya.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
         }}
@@ -74,7 +74,7 @@ export default function OurStoryPage() {
                 We started small — just a handful of itineraries built for friends who trusted us to show them the Sri Lanka we loved. Word spread. Today we guide travelers from Australia, New Zealand, the United Kingdom, Europe, and India through journeys that are crafted to last a lifetime in memory.
               </p>
               <p className="font-body text-forest/70 text-base leading-relaxed">
-                We are based in Thalawathugoda, Sri Lanka, and in Auckland, New Zealand — which means we understand both where our travelers come from and the island that awaits them.
+                We are based in Thalawathugoda, Sri Lanka — and with contacts across Australia, India, and the United Kingdom, we understand both where our travelers come from and the island that awaits them.
               </p>
             </div>
 
