@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
-  const bgRef = useRef<HTMLDivElement>(null)
+  const bgRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     if (!bgRef.current) return
@@ -29,16 +29,27 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="relative w-full h-screen min-h-[640px] flex items-center justify-center overflow-hidden">
-      {/* Parallax background */}
-      <div
+      {/* Parallax background — real video from lankanessence.com */}
+      <video
         ref={bgRef}
-        className="absolute inset-0 scale-110"
-        style={{
-          backgroundImage: `url('https://static.wixstatic.com/media/6271b2_6277832756034311941b873be7b37f13~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/train.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="https://static.wixstatic.com/media/6271b2_6277832756034311941b873be7b37f13~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_avif,quality_auto/train.jpg"
+        className="absolute inset-0 w-full h-full object-cover scale-110"
+        style={{ willChange: 'transform' }}
+      >
+        <source
+          src="https://video.wixstatic.com/video/11062b_0f8758e51a5341cd8b26833e9484ff97/1080p/mp4/file.mp4"
+          type="video/mp4"
+          media="(min-width: 1024px)"
+        />
+        <source
+          src="https://video.wixstatic.com/video/11062b_0f8758e51a5341cd8b26833e9484ff97/720p/mp4/file.mp4"
+          type="video/mp4"
+        />
+      </video>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-forest-deep/80 via-forest-deep/50 to-forest-deep/80" />

@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero'
 import PackageCard from '@/components/ui/PackageCard'
 import StatsBar from '@/components/sections/StatsBar'
 import CulturalSpotlight from '@/components/sections/CulturalSpotlight'
+import VideoReel from '@/components/sections/VideoReel'
 import Testimonials from '@/components/sections/Testimonials'
 import WhyChooseUs from '@/components/sections/WhyChooseUs'
 import WaveDivider from '@/components/layout/WaveDivider'
@@ -83,6 +84,8 @@ export default function HomePage() {
 
       <CulturalSpotlight />
 
+      <VideoReel />
+
       {/* Accommodations Preview */}
       <section className="bg-forest py-section overflow-hidden">
         <div className="max-w-container mx-auto px-5 md:px-8">
@@ -120,9 +123,21 @@ export default function HomePage() {
       <Testimonials />
       <WhyChooseUs />
 
-      {/* CTA Banner */}
-      <section className="bg-forest-deep py-20">
-        <div className="max-w-container mx-auto px-5 md:px-8 text-center">
+      {/* CTA Banner — video background */}
+      <section className="relative py-28 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://static.wixstatic.com/media/6271b2_6277832756034311941b873be7b37f13~mv2.jpg/v1/fill/w_1920,h_600,al_c,q_85,enc_avif,quality_auto/train.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
+        >
+          <source src="https://video.wixstatic.com/video/11062b_0f8758e51a5341cd8b26833e9484ff97/720p/mp4/file.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-forest-deep/80" />
+        <div className="relative z-10 max-w-container mx-auto px-5 md:px-8 text-center">
           <p className="font-body text-label-caps text-gold uppercase tracking-wider mb-4">Ready to Discover Sri Lanka?</p>
           <h2 className="font-display text-display-sm md:text-display-md text-cream mb-6">
             Let Us Plan Your Perfect Journey
