@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand Colors */
+  --color-forest: #1A4731;
+  --color-forest-deep: #0D2818;
+  --color-gold: #D4A017;
+  --color-teal: #1B5E6E;
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #EDE8E0;
+
+  /* Font Families — CSS vars injected by next/font/google in layout */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-dmsans), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: #F5F0E8;
+    color: #1A4731;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #D4A017;
+    color: #1A4731;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Container */
+  .max-w-container {
+    max-width: 1280px;
+  }
+
+  /* Section spacing */
+  .py-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .py-section-sm {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* Display font sizes */
+  .text-display-xl {
+    font-size: 72px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .text-display-lg {
+    font-size: 56px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .text-display-md {
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  .text-display-sm {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .text-display-xs {
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .text-label-caps {
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+  }
+
+  /* Text shadows */
+  .text-shadow-hero {
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Hide scrollbar for horizontal scroll */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Diamond clip for images */
+  .clip-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
 }
