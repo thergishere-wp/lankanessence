@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRef, MouseEvent } from 'react'
 
 interface PackageCardProps {
   name: string
@@ -12,8 +15,43 @@ interface PackageCardProps {
 }
 
 export default function PackageCard({ name, duration, tagline, description, image, slug }: PackageCardProps) {
+  const cardRef = useRef<HTMLAnchorElement>(null)
+
+  function handleMouseMove(e: MouseEvent<HTMLAnchorElement>) {
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width  - 0.5   /* -0.5 to +0.5 */
+    const y = (e.clientY - rect.top)  / rect.height - 0.5
+    card.style.transform = `perspective(700px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) scale(1.02)`
+  }
+
+  function handleMouseLeave() {
+    const card = cardRef.current
+    if (!card) return
+    card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)'
+    card.style.transform = 'perspective(700px) rotateY(0deg) rotateX(0deg) scale(1)'
+    setTimeout(() => {
+      if (card) card.style.transition = ''
+    }, 500)
+  }
+
+  function handleMouseEnter() {
+    const card = cardRef.current
+    if (!card) return
+    card.style.transition = 'transform 0.1s ease-out'
+  }
+
   return (
-    <Link href={`/packages#${slug}`} className="group relative block overflow-hidden cursor-pointer">
+    <Link
+      ref={cardRef}
+      href={`/packages#${slug}`}
+      className="group relative block overflow-hidden cursor-pointer"
+      style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+    >
       {/* Full-bleed image */}
       <div className="relative h-72 md:h-80 overflow-hidden">
         <Image

@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
+import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -38,12 +39,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable} scroll-smooth`}>
       <body className="font-body">
-        <Navbar />
-        <div className="pt-16 md:pt-20">
-          {children}
-        </div>
-        <Footer />
-        <WhatsAppButton />
+        <SmoothScrollProvider>
+          <Navbar />
+          <div className="pt-16 md:pt-20">
+            {children}
+          </div>
+          <Footer />
+          <WhatsAppButton />
+        </SmoothScrollProvider>
       </body>
     </html>
   )

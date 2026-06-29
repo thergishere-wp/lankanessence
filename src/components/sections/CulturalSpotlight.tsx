@@ -1,11 +1,40 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function CulturalSpotlight() {
   const ref = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion || !imageRef.current) return
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        imageRef.current,
+        { clipPath: 'inset(0 100% 0 0)' },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section ref={ref} className="bg-forest">
@@ -42,11 +71,9 @@ export default function CulturalSpotlight() {
             </a>
           </motion.div>
 
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          {/* Image — clipPath reveal */}
+          <div
+            ref={imageRef}
             className="relative min-h-[400px] lg:min-h-0"
             style={{
               backgroundImage: `url('https://static.wixstatic.com/media/6271b2_966660957d96479ba9cd1b3ddd6523cd~mv2.jpg/v1/fill/w_900,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Perehara.jpg')`,
@@ -55,7 +82,7 @@ export default function CulturalSpotlight() {
             }}
           >
             <div className="absolute inset-0 bg-forest/30" />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

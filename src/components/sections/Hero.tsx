@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import FlyingBirds from './FlyingBirds'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -53,6 +54,9 @@ export default function Hero() {
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-forest-deep/80 via-forest-deep/50 to-forest-deep/80" />
+
+      {/* Flying birds */}
+      <FlyingBirds />
 
       {/* Content */}
       <div className="relative z-10 text-center px-5 md:px-8 max-w-4xl mx-auto">
